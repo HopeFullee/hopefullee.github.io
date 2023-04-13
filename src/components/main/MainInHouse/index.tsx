@@ -1,26 +1,38 @@
-import React, { useState } from 'react'
-import tinkleland from 'assets/images/main/main_tinkleland.png'
+import React from 'react'
 import rundit from 'assets/images/main/main_rundit.png'
-import ItemCard from './ItemCard'
-import CustomLink from './CustomLink'
-import { Link } from 'gatsby'
+import tinkleland from 'assets/images/main/main_tinkleland.png'
 import clsx from 'clsx'
+import { useState } from 'react'
+import CustomLink from './CustomLink'
 import './index.scss'
 
+const content = [
+  {
+    linkPath: '/tinkle-land',
+    cardName: '팅클랜드',
+    body: (
+      <>
+        팅클랜드는 반려동물과 사람간의 <br />
+        공존, 소통, 이해를 바탕으로 만들어진 브랜드입니다.
+      </>
+    ),
+    imgSrc: tinkleland,
+  },
+  {
+    linkPath: '/rundit',
+    cardName: '런딧',
+    body: (
+      <>
+        런딧은 고객님들의 불편사항을 반영하여 <br />
+        만든 기능성 의류 브랜드입니다.
+      </>
+    ),
+    imgSrc: rundit,
+  },
+]
+
 const MainInHouse = () => {
-  const [activeCard, setActiveCard] = useState([true, false])
-
-  const firstCardEnter = () => {
-    if (activeCard[0] === false) {
-      setActiveCard([true, false])
-    }
-  }
-
-  const secondCardEnter = () => {
-    if (activeCard[1] === false) {
-      setActiveCard([false, true])
-    }
-  }
+  const [activeCardIdx, setActiveCardIdx] = useState(0)
 
   return (
     <section className="flex flex-col gap-30 sm:gap-40 lg:gap-50 mt-100 sm:mt-140 lg:mt-180">
@@ -35,44 +47,27 @@ const MainInHouse = () => {
 
       <article className="flex flex-col-reverse h-full sm:flex-row ">
         <ul className="sm:z-10 flex flex-col justify-center sm:w-[60%] md:w-[80%] sm:gap-20 lg:gap-40 max-w-804 bg-[#FBFBFB]">
-          <li className="min-h-[30%]" onMouseEnter={firstCardEnter}>
-            <CustomLink
-              isCardActive={activeCard[0]}
-              linkPath="/tinkle-land"
-              cardName="팅클랜드"
-            >
-              팅클랜드는 반려동물과 사람간의 <br />
-              공존, 소통, 이해를 바탕으로 만들어진 브랜드입니다.
-            </CustomLink>
-          </li>
-          <li className="min-h-[30%]" onMouseEnter={secondCardEnter}>
-            <CustomLink
-              isCardActive={activeCard[1]}
-              linkPath="/rundit"
-              cardName="런딧"
-            >
-              런딧은 고객님들의 불편사항을 반영하여 <br />
-              만든 기능성 의류 브랜드입니다.
-            </CustomLink>
-          </li>
+          {content.map(({ body, ...rest }, idx) => (
+            <li key={idx} onMouseEnter={() => setActiveCardIdx(idx)}>
+              <CustomLink isCardActive={idx === activeCardIdx} {...rest}>
+                {body}
+              </CustomLink>
+            </li>
+          ))}
         </ul>
         <div className="relative w-full h-full max-w-1116">
-          <img
-            className={clsx(
-              activeCard[0] ? 'fade-in' : 'opacity-0',
-              'object-cover w-full h-full',
-            )}
-            src={tinkleland}
-            alt="(주)텔로스 팅클랜드"
-          />
-          <img
-            className={clsx(
-              activeCard[1] ? 'fade-in' : 'opacity-0',
-              'object-cover w-full h-full absolute top-0 right-0 bottom-0 left-0',
-            )}
-            src={rundit}
-            alt="(주)텔로스 런딧"
-          />
+          {content.map(({ imgSrc }, idx) => (
+            <img
+              key={imgSrc}
+              className={clsx(
+                'object-cover w-full h-full',
+                idx === activeCardIdx ? 'fade-in' : 'opacity-0',
+                !idx && 'absolute top-0 right-0 bottom-0 left-0',
+              )}
+              src={imgSrc}
+              alt="(주)텔로스 팅클랜드"
+            />
+          ))}
         </div>
       </article>
     </section>
