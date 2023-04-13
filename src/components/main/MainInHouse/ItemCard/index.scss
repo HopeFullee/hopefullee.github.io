@@ -1,0 +1,19 @@
+.card-on {
+  @apply transition-all bg-c-orange-300 all:text-white drop-shadow-lg;
+  animation: anim 0.4s ease-in-out;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 100;
+    transform: translateX(0);
+  }
+}
+
+.card-off {
+  @apply all:text-c-gray-300;
+}
