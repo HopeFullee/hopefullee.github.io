@@ -9,7 +9,7 @@ export type Info = {
   img: string
 }
 
-const TEST_INFO: Info[] = [
+const PROCESS_INFO: Info[] = [
   {
     name: 'creative',
     content: '창조를 바라는 고민에 혁신으로 응답하기 위해',
@@ -36,7 +36,7 @@ const MainProcess = () => {
   const [selected, setSelected] = useState(0)
 
   return (
-    <section className="flex flex-col gap-30 sm:gap-40 lg:gap-50 mt-100 sm:mt-140 lg:mt-180 px-30 sm:px-60 md:px-100 xxl:px-150">
+    <section className="flex flex-col mx-auto gap-30 sm:gap-40 lg:gap-50 mt-100 sm:mt-200 lg:mt-250 px-30 max-w-1600">
       <div className="flex flex-col gap-5 lg:gap-10 ">
         <h4 className="font-bold text-28 sm:text-45 lg:text-55 text-c-black-300">
           브랜딩 프로세스
@@ -54,9 +54,9 @@ const MainProcess = () => {
       </div>
 
       <article className="flex flex-col gap-20 sm:gap-30 md:gap-40 sm:flex-row xl:gap-60">
-        <GraphicBox info={TEST_INFO} graphicToRender={selected} />
+        <GraphicBox info={PROCESS_INFO} graphicToRender={selected} />
         <TextList
-          info={TEST_INFO}
+          info={PROCESS_INFO}
           graphicToSet={setSelected}
           selectedItem={selected}
         />

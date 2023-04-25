@@ -10,9 +10,9 @@ type NavbarProps = {
 
 const NAVBAR_ITEMS = {
   홈: '/',
-  '자체 프로젝트': '/about',
-  '우리의 이야기': '/culture',
-  포트폴리오: '/news',
+  '자체 프로젝트': '/inhouse',
+  '우리의 이야기': '/about',
+  포트폴리오: '/portfolio',
   문의: '/contact',
 }
 
@@ -48,14 +48,14 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
         <button onClick={handleCloseClick} className="ml-auto text-white m-30 ">
           <CloseIcon className="w-50 h-50" />
         </button>
-        <div className="flex flex-col gap-20 font-bold text-white mt-50 all:pl-75 text-32 under:font-open-sans">
+        <div className="flex flex-col gap-20 font-bold text-white mt-50 all:pl-[15%] text-32 under:font-open-sans">
           {Object.entries(NAVBAR_ITEMS).map(([key, path]) => (
             <Link key={key} to={path} className="hover:text-c-orange-300">
               {key}
             </Link>
           ))}
         </div>
-        <div className="flex items-center gap-10 mt-auto text-c-gray-400 mb-75 sm:mb-50 pl-75 all:font-open-sans">
+        <div className="flex items-center gap-10 mt-auto text-c-gray-400 mb-75 sm:mb-50 pl-[15%] all:font-open-sans">
           <a href="https://www.instagram.com/telos_official/" target="_blank">
             Instagram
           </a>

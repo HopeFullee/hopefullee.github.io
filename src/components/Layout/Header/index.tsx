@@ -15,7 +15,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed top-0 z-20 flex items-center justify-between w-full bg-white border-b-1 h-60 px-15 sm:px-30 sm:h-86 lg:px-50">
+    <header className="fixed top-0 left-[50%] translate-x-[-50%] z-20 flex items-center justify-between w-full bg-white max-w-1920 border-b-1 h-60 px-15 sm:px-30 sm:h-86 lg:px-50">
       <Link to="/" aria-label="TELOS">
         <TelosLogo className="w-full h-36 sm:h-46" alt="Telos logo" />
       </Link>

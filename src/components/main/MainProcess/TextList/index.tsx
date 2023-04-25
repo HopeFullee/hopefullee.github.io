@@ -26,7 +26,7 @@ const TextList = ({ graphicToSet, selectedItem, info }: TextListProps) => {
             )}
             onMouseEnter={() => handleItemHover(idx)}
           >
-            <span className="!text-22 md:!text-24 lg:!text-26 xl:!text-30 xxxl:!text-35 !font-bold">
+            <span className="text-c-gray-300 !text-22 md:!text-24 lg:!text-26 xl:!text-30 xxxl:!text-35 !font-bold">
               {`0${idx + 1}`}
             </span>
             {content}
