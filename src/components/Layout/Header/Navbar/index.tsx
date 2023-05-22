@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
 import { CloseIcon } from 'components/shared/Icons'
 import clsx from 'clsx'
+import { useLocation } from '@reach/router'
 import './index.scss'
 
 type NavbarProps = {
@@ -23,7 +24,6 @@ const NAVBAR_ITEMS = {
 const ANIMATION_TERM = 400
 
 const Navbar = ({ onClose, open }: NavbarProps) => {
-  const [currentPath, setCurrentPath] = useState('/')
   const navRef = useRef<HTMLElement>(null)
 
   const menuOut = () =>
@@ -39,11 +39,7 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
     })
   }
 
-  useEffect(() => {
-    const getCurrentPath = window.location.pathname
-
-    setCurrentPath(getCurrentPath)
-  }, [])
+  const { pathname: currentPath } = useLocation()
 
   if (!open) return <></>
 

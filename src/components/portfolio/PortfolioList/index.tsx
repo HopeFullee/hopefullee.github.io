@@ -2,11 +2,7 @@ import React from 'react'
 import ListCategory from './ListCategory'
 
 const PortfolioList = () => {
-  return (
-    <section>
-      <ListCategory />
-    </section>
-  )
+  return <section></section>
 }
 
 export default PortfolioList

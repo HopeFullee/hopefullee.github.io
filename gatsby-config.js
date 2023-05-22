@@ -1,12 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `텔로스`,
+    description: `We are creative studio TELOS`,
+    author: `@Telos`,
+    siteUrl: `https://www.thetelos.net/`,
+  },
+  pathPrefix: '',
+  flags: {
+    DEV_SSR: true,
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
-    `@mediacurrent/gatsby-plugin-silence-css-order-warning`,
+    'gatsby-plugin-sitemap',
+    '@mediacurrent/gatsby-plugin-silence-css-order-warning',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -78,6 +83,9 @@ module.exports = {
         ],
       },
     },
+    /**
+     * 존나 어려움 *
+     **/
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
