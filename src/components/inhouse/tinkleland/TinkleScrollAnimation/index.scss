@@ -1,0 +1,31 @@
+.c-animation-1 {
+  animation: animation-1 5s ease-in-out infinite;
+}
+
+@keyframes animation-1 {
+  0% {
+    transform: translateY(0px) rotateZ(2deg);
+  }
+  50% {
+    transform: translateY(30px) rotateZ(-2deg);
+  }
+  100% {
+    transform: translateY(0px) rotateZ(2deg);
+  }
+}
+
+.c-animation-2 {
+  animation: animation-2 4s ease-in-out infinite;
+}
+
+@keyframes animation-2 {
+  0% {
+    transform: translateY(0px) rotateZ(-2deg);
+  }
+  50% {
+    transform: translateY(30px) rotateZ(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotateZ(-2deg);
+  }
+}

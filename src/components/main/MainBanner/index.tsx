@@ -19,13 +19,13 @@ const MainBanner = () => {
     setHydrateBg(mainBanner)
   }, [])
   return (
-    <section className="relative w-full overflow-hidden inner-height">
+    <section className="relative w-full mx-auto overflow-hidden inner-height lg:h-[100vh]">
       <BackgroundImage
         Tag="article"
         className="flex-col w-full h-full font-bold text-center gap-15 lg:gap-20 under:px-30 flex-center"
         fluid={hydrateBg}
       >
-        <h2 className="leading-snug text-white text-32 sm:text-45 lg:text-55 mt-100 sm:mt-150 break-keep drop-shadow-xl">
+        <h2 className="leading-snug text-white text-32 sm:text-45 lg:text-55 mt-100 sm:mt-150 break-keep drop-shadow-[0_4px_4px_#00000045]">
           우리는 브랜드가 <br />
           세상에 탄생될 수 있도록 돕습니다.
         </h2>

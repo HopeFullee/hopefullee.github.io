@@ -9,13 +9,13 @@ const AboutMarquee = () => {
       const currentWidth = window.innerWidth
 
       if (currentWidth > 1100) {
-        setMarqueeSpeed(200)
-      }
-      if (currentWidth <= 1100 && currentWidth > 600) {
         setMarqueeSpeed(150)
       }
+      if (currentWidth <= 1100 && currentWidth > 600) {
+        setMarqueeSpeed(110)
+      }
       if (currentWidth <= 600) {
-        setMarqueeSpeed(80)
+        setMarqueeSpeed(70)
       }
     }
     const debounceResize = (fn: Function, delay: number) => {
@@ -33,8 +33,9 @@ const AboutMarquee = () => {
     getCurrentWidth()
     return () => window.removeEventListener('resize', getCurrentWidth)
   }, [])
+
   return (
-    <section className="mt-150 sm:mt-200 md:mt-250 lg:mt-300">
+    <section className="select-none mt-100 sm:mt-200 md:mt-250 lg:mt-300">
       <Marquee gradient={false} speed={marqueeSpeed}>
         <p className="font-open-sans font-bold text-65 sm:text-90 md:text-[100px] lg:text-[150px] text-c-orange-300 pr-10 sm:pr-20 lg:pr-40">
           Creative makes with a bit of difference

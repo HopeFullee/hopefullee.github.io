@@ -9,10 +9,14 @@ export const onClientEntry = () => {
   }
 }
 
-// css vh 의 값을 실제 viewport 의 값으로 변경
-// styles/global.scss 상단 inner-height 클래스에 적용
-// const setVh = () => {
-//   document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-// }
-// window.addEventListener('resize', setVh)
-// setVh()
+// 전역 리코일 루트 설정
+import { RecoilRoot } from 'recoil'
+import { ParallaxProvider } from 'react-scroll-parallax'
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <ParallaxProvider>
+      <RecoilRoot>{element}</RecoilRoot>
+    </ParallaxProvider>
+  )
+}

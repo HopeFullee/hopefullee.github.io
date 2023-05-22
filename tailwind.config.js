@@ -46,6 +46,7 @@ module.exports = {
       },
       fontFamily: {
         'open-sans': ['OpenSans'],
+        'rabbid-highway-sign': ['RabbidHighwaySignII'],
       },
       screens: {
         ssm: '450px',

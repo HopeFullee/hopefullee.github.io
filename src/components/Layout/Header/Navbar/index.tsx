@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
 import { CloseIcon } from 'components/shared/Icons'
+import clsx from 'clsx'
 import './index.scss'
 
 type NavbarProps = {
@@ -10,19 +11,21 @@ type NavbarProps = {
 
 const NAVBAR_ITEMS = {
   홈: '/',
-  '자체 프로젝트': '/inhouse',
-  '우리의 이야기': '/about',
-  포트폴리오: '/portfolio',
-  문의: '/contact',
+  '자체 프로젝트': '/inhouse/',
+  '우리의 이야기': '/about/',
+  포트폴리오: '/portfolio/',
+  문의: '/contact/',
 }
 
 /*
  *  ./index.scss animation 확인
  */
-const ANIMATION_TERM = 300
+const ANIMATION_TERM = 400
 
 const Navbar = ({ onClose, open }: NavbarProps) => {
+  const [currentPath, setCurrentPath] = useState('/')
   const navRef = useRef<HTMLElement>(null)
+
   const menuOut = () =>
     new Promise(res => {
       navRef.current?.classList.remove('toggle-menu')
@@ -36,6 +39,12 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
     })
   }
 
+  useEffect(() => {
+    const getCurrentPath = window.location.pathname
+
+    setCurrentPath(getCurrentPath)
+  }, [])
+
   if (!open) return <></>
 
   return (
@@ -48,9 +57,17 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
         <button onClick={handleCloseClick} className="ml-auto text-white m-30 ">
           <CloseIcon className="w-50 h-50" />
         </button>
-        <div className="flex flex-col gap-20 font-bold text-white mt-50 all:pl-[15%] text-32 under:font-open-sans">
+        <div className="flex flex-col gap-20 under:font-bold text-white mt-50 all:pl-[15%] text-32">
           {Object.entries(NAVBAR_ITEMS).map(([key, path]) => (
-            <Link key={key} to={path} className="hover:text-c-orange-300">
+            <Link
+              key={key}
+              to={path}
+              className={clsx(
+                currentPath === path
+                  ? 'text-c-orange-300'
+                  : 'hover:text-c-orange-300',
+              )}
+            >
               {key}
             </Link>
           ))}

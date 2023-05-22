@@ -1,9 +1,9 @@
 import React from 'react'
-import { Info } from '..'
+import { ProcessInfo } from '..'
 
 type GraphicBoxProps = {
   graphicToRender: number
-  info: Info[]
+  info: ProcessInfo[]
 }
 
 const GraphicBox = ({ graphicToRender, info }: GraphicBoxProps) => {

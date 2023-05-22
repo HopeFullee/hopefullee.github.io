@@ -1,0 +1,21 @@
+.on-prev::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #fbfbfb);
+  pointer-events: none;
+}
+
+.on-next::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to left, transparent, #fbfbfb);
+  pointer-events: none;
+}

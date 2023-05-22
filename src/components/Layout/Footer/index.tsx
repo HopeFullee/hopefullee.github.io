@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col flex-wrap mx-auto max-w-1920 py-25 mt-80 sm:mt-120 px-30 sm:py-30 md:flex-row sm:px-60 lg:py-42 md:px-80 lg:px-120 sm:justify-between border-t-1">
+    <footer className="flex flex-col flex-wrap mx-auto bg-white max-w-1920 py-25 px-30 sm:py-30 md:flex-row sm:px-60 lg:py-42 md:px-80 lg:px-120 sm:justify-between border-t-1">
       <div className="all:text-c-gray-400 lg:all:text-18 break-keep">
         <div className="flex items-center gap-15">
           <p className="font-open-sans !text-c-orange-300 !font-extrabold !text-28 lg:!text-32">
@@ -11,11 +11,11 @@ const Footer = () => {
           <p className="mt-6">(주)텔로스</p>
         </div>
 
-        <p className="flex gap-20 mt-10 font-open-sans">
+        <p className="flex gap-20 mt-10">
           <span>T. 063-714-4660</span>
           <span>F. 070-7500-6312</span>
         </p>
-        <p className="font-open-sans">E. telos_inc@naver.com</p>
+        <p>E. telos_inc@naver.com</p>
         <p className="mt-20">
           전라북도 전주시 완산구 팔달로 184, 4층 (관통빌딩)
         </p>

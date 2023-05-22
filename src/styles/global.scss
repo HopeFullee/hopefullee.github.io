@@ -13,13 +13,13 @@ body {
   min-width: 270px;
 }
 
-.overflow-y-hidden {
-  overflow-y: hidden;
-}
-
 * {
   font-family: 'Pretendard';
   color: #2b2b2b;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 
 @font-face {
@@ -110,4 +110,17 @@ body {
   font-weight: 800;
   src: local('※'), url('/fonts/OpenSans-ExtraBold.woff2') format('woff2'),
     url('/fonts/OpenSans-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RabbidHighwaySignII';
+  font-style: normal;
+  font-display: swap;
+  src: local('※'), url('/fonts/RabbidHighwaySignII.woff2') format('woff2'),
+    url('/fonts/OpenSans-RabbidHighwaySignII.woff') format('woff');
+}
+
+.swiper-pagination-bullet {
+  background: #999999 !important;
+  opacity: 1 !important;
 }

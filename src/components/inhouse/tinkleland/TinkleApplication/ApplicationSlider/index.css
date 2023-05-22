@@ -1,0 +1,66 @@
+.bg-overlay {
+  @apply absolute top-0 bottom-0 left-0 right-0 transition-all duration-1000 ease-in;
+}
+
+.bg-item-01 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f6ce7e), color-stop(63%, #f6ce7e), color-stop(63%, #eaa695), to(#eaa695));
+  background: linear-gradient(to bottom, #f6ce7e 0%, #f6ce7e 63%, #eaa695 63%, #eaa695 100%);
+}
+
+.bg-item-02 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#bf7c41), color-stop(63%, #bf7c41), color-stop(63%, #d2e9eb), to(#d2e9eb));
+  background: linear-gradient(to bottom, #bf7c41 0%, #bf7c41 63%, #d2e9eb 63%, #d2e9eb 100%);
+}
+
+.bg-item-03 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#eae897), color-stop(63%, #eae897), color-stop(63%, #5ebacd), to(#5ebacd));
+  background: linear-gradient(to bottom, #eae897 0%, #eae897 63%, #5ebacd 63%, #5ebacd 100%);
+}
+
+.bg-item-04 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#5dc2cc), color-stop(63%, #5dc2cc), color-stop(63%, #c4f1f8), to(#c4f1f8));
+  background: linear-gradient(to bottom, #5dc2cc 0%, #5dc2cc 63%, #c4f1f8 63%, #c4f1f8 100%);
+}
+
+.bg-item-05 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fede6c), color-stop(63%, #fede6c), color-stop(63%, #fef0d6), to(#fef0d6));
+  background: linear-gradient(to bottom, #fede6c 0%, #fede6c 63%, #fef0d6 63%, #fef0d6 100%);
+}
+
+.bg-item-06 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f5dd7d), color-stop(63%, #f5dd7d), color-stop(63%, #7ac7da), to(#7ac7da));
+  background: linear-gradient(to bottom, #f5dd7d 0%, #f5dd7d 63%, #7ac7da 63%, #7ac7da 100%);
+}
+
+.bg-item-07 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fabc2a), color-stop(63%, #fabc2a), color-stop(63%, #cfec77), to(#cfec77));
+  background: linear-gradient(to bottom, #fabc2a 0%, #fabc2a 63%, #cfec77 63%, #cfec77 100%);
+}
+
+.bg-item-08 {
+  background: -webkit-gradient(linear, left top, left bottom, from(#72b87a), color-stop(63%, #72b87a), color-stop(63%, #c2d47c), to(#c2d47c));
+  background: linear-gradient(to bottom, #72b87a 0%, #72b87a 63%, #c2d47c 63%, #c2d47c 100%);
+}
+
+.tinkle-pagination-container {
+  position: absolute;
+  z-index: 10;
+  bottom: -30px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tinkle-pagination-bullet-active {
+  background: #7c4a2c !important;
+}
+
+@media (min-width: 600px) {
+  .tinkle-pagination-container {
+    display: none;
+  }
+}
+/*# sourceMappingURL=index.css.map */

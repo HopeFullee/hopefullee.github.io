@@ -35,7 +35,7 @@ const MainInHouse = () => {
   const [activeCardIdx, setActiveCardIdx] = useState(0)
 
   return (
-    <section className="flex flex-col gap-30 sm:gap-40 lg:gap-50 mt-100 sm:mt-140 lg:mt-180">
+    <section className="flex flex-col mx-auto gap-30 sm:gap-40 lg:gap-50 mt-100 sm:mt-140 lg:mt-180">
       <div className="flex flex-col gap-5 lg:gap-10 pl-30 sm:pl-60 md:pl-100 xxl:pl-150">
         <h4 className="font-bold text-28 sm:text-45 lg:text-55 text-c-black-300">
           자체 브랜드

@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import GraphicBox from './GraphicBox'
 import TextList from './TextList'
-import GraphicOne from 'assets/images/main/main_process_01.png'
+import GraphicOne from 'assets/images/main/main_process_01.gif'
+import GraphicTwo from 'assets/images/main/main_process_02.gif'
+import GraphicThree from 'assets/images/main/main_process_03.gif'
+import GraphicFour from 'assets/images/main/main_process_04.gif'
 
-export type Info = {
+export type ProcessInfo = {
   name: string
   content: string
   img: string
 }
 
-const PROCESS_INFO: Info[] = [
+const PROCESS_INFO: ProcessInfo[] = [
   {
     name: 'creative',
     content: '창조를 바라는 고민에 혁신으로 응답하기 위해',
@@ -18,17 +21,17 @@ const PROCESS_INFO: Info[] = [
   {
     name: 'thinking',
     content: '늘 고민하고 분석하며',
-    img: GraphicOne,
+    img: GraphicTwo,
   },
   {
     name: 'outstand',
     content: '누구의 예상도 뛰어넘는',
-    img: GraphicOne,
+    img: GraphicThree,
   },
   {
     name: 'partners',
     content: '영원한 파트너로 지속 가능한 브랜드를 실현합니다.',
-    img: GraphicOne,
+    img: GraphicFour,
   },
 ]
 

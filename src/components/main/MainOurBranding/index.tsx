@@ -1,6 +1,5 @@
 import React from 'react'
 import CommentCard from './CommentCard'
-import clsx from 'clsx'
 import profile01 from 'assets/images/main/main_chat_01.png'
 import profile02 from 'assets/images/main/main_chat_02.png'
 import profile03 from 'assets/images/main/main_chat_03.png'

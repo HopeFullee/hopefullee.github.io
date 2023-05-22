@@ -8,11 +8,11 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="mx-auto max-w-1920">
       <Header />
       {children}
       <Footer />
-    </>
+    </div>
   )
 }
 

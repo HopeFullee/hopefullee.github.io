@@ -39,7 +39,7 @@ const CommentCard = ({ cardInfo }: CommentCardProps) => {
                   {department}
                 </p>
               </div>
-              <p className="leading-relaxed tracking-tight text-16 sm:text-20 lg:text-28 break-keep">
+              <p className="leading-relaxed tracking-tight text-15 sm:text-20 lg:text-28 break-keep">
                 {comment}
               </p>
             </div>

@@ -1,0 +1,11 @@
+.rundit-pagination-container {
+  position: absolute;
+  z-index: 10;
+  bottom: -30px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.rundit-pagination-bullet-active {
+  background: white !important;
+}

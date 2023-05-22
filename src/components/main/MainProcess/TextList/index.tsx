@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react'
 import clsx from 'clsx'
-import { Info } from '..'
+import { ProcessInfo } from '..'
 
 type TextListProps = {
-  info: Info[]
+  info: ProcessInfo[]
   graphicToSet: Function
   selectedItem: number
 }
