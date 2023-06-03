@@ -3,9 +3,9 @@ module.exports = {
     title: `텔로스`,
     description: `We are branding team`,
     author: `@Telos`,
-    siteUrl: `https://www.thetelos.net/`,
+    siteUrl: `https://hopefullee.github.io/telos_branding/`,
   },
-  pathPrefix: 'public/',
+  pathPrefix: '',
   flags: {
     DEV_SSR: true,
   },
