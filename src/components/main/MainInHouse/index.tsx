@@ -8,7 +8,7 @@ import './index.scss'
 
 const content = [
   {
-    linkPath: '/tinkle-land',
+    linkPath: '/inhouse/tinkleland',
     cardName: '팅클랜드',
     body: (
       <>
@@ -19,7 +19,7 @@ const content = [
     imgSrc: tinkleland,
   },
   {
-    linkPath: '/rundit',
+    linkPath: '/inhouse/rundit',
     cardName: '런딧',
     body: (
       <>

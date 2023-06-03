@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useBannerImage } from 'hooks/useBannerImage'
 import { GatsbyImage } from 'gatsby-plugin-image'
 

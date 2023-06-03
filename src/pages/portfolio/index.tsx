@@ -1,10 +1,13 @@
 import React, { useMemo, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
-import { CategoryListProps } from 'components/portfolio/PortfolioList/ListCategory'
+import { CategoryListProps } from 'components/portfolio/PortfolioList/PortfolioCategory'
 import { useRecoilState } from 'recoil'
 import { currentCategoryStateAtom } from 'store/storeCurrentCategory'
 import queryString from 'query-string'
+import PortfolioDescription from 'components/portfolio/PortfolioDescription'
+import PortfolioList from 'components/portfolio/PortfolioList'
+import SEO from 'components/shared/SEO'
 
 type NewsPageProps = {
   location: {
@@ -63,7 +66,18 @@ const PortfolioPage = function ({
     if (categoryQueryString) setCurrentCategory(categoryQueryString)
   }, [categoryQueryString])
 
-  return <Layout>asd</Layout>
+  return (
+    <Layout>
+      <SEO title="PORTFOLIO" description="브랜딩 포트폴리오" />
+      <PortfolioDescription />
+      <PortfolioList
+        itemClickCallback={setCurrentCategory}
+        selectedCategory={currentCategory}
+        categoryList={categoryList}
+        posts={edges}
+      />
+    </Layout>
+  )
 }
 
 export default PortfolioPage
@@ -83,11 +97,10 @@ export const getPostList = graphql`
           }
           frontmatter {
             title
-            date(formatString: "YYYY-MM-DD")
             categories
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 470, height: 340, quality: 100)
+                gatsbyImageData(width: 470, height: 360, quality: 100)
               }
             }
           }

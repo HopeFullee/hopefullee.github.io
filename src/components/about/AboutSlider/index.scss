@@ -19,3 +19,21 @@
   background: linear-gradient(to left, transparent, #fbfbfb);
   pointer-events: none;
 }
+
+.about-pagination-container {
+  position: absolute;
+  z-index: 10;
+  bottom: 0px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.about-pagination-bullet-active {
+  background: #eb691b !important;
+}
+
+@media (min-width: 600px) {
+  .about-pagination-container {
+    display: none;
+  }
+}

@@ -18,15 +18,19 @@ const RunditDescription = () => {
             </div>
           </div>
           <div className="md:w-[55%] flex flex-col gap-30">
-            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-450 lg:max-w-580 break-keep">
+            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-650 break-keep">
               런딧은 스포츠와 일상의 사이에서 ‘편안함과 멋스러움이 공존할 수
-              있을까’란 질문에서 시작되었습니다. “남들과는 다르게 나만의 길을
-              향해 달리자”라는 모토로 기존 브랜드와 차별화를 가지는 남성 스포츠
+              있을까’란 질문에서
+              <br className="hidden xl:block" /> 시작되었습니다. “남들과는
+              다르게 나만의 길을 향해 달리자”라는 모토로 기존 브랜드와
+              <br className="hidden xl:block" /> 차별화를 가지는 남성 스포츠
               의류 브랜드입니다.
             </p>
-            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-450 lg:max-w-580 break-keep">
+            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-650 break-keep">
               브랜드 핵심 가치를 편리함과 자신감으로 설정하여 애슬레틱하고
-              세련된 브랜드 아이덴티티를 설정하고 구축하였습니다.
+              세련된
+              <br className="hidden xl:block" /> 브랜드 아이덴티티를 설정하고
+              구축하였습니다.
             </p>
           </div>
         </div>

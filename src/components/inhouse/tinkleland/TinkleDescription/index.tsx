@@ -18,12 +18,14 @@ const TinkleDescription = () => {
             </div>
           </div>
           <div className="md:w-[55%] flex flex-col gap-30">
-            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-480 lg:max-w-580 break-keep">
+            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-650 break-keep">
               반려동물과 사람간의 공존과 소통 그리고 이해를 바탕으로 만들어진
-              브랜드입니다. 펫 간식 사업을 시작으로 반려동물과 사람간의
-              상호작용을 중심으로한 브랜드 컨셉 및 세계관을 구축 하였으며,
-              독자적인 세계관으로 브랜드를 확장시키면서도 지속가능한 브랜딩을
-              진행합니다.
+              브랜드입니다.
+              <br className="hidden xl:block" /> 펫 간식 사업을 시작으로
+              반려동물과 사람간의 상호작용을 중심으로한 브랜드 컨셉 및
+              <br className="hidden xl:block" /> 세계관을 구축 하였으며,
+              독자적인 세계관으로 브랜드를 확장시키면서도
+              <br className="hidden xl:block" /> 지속가능한 브랜딩을 진행합니다.
             </p>
           </div>
         </div>

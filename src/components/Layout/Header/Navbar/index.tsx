@@ -25,6 +25,7 @@ const ANIMATION_TERM = 400
 
 const Navbar = ({ onClose, open }: NavbarProps) => {
   const navRef = useRef<HTMLElement>(null)
+  const { pathname: currentPath } = useLocation()
 
   const menuOut = () =>
     new Promise(res => {
@@ -39,7 +40,10 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
     })
   }
 
-  const { pathname: currentPath } = useLocation()
+  const isHighlightPath = (path: string) => {
+    if (path === '/' && currentPath !== '/') return false
+    return currentPath.startsWith(path)
+  }
 
   if (!open) return <></>
 
@@ -50,7 +54,7 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
         ref={navRef}
         className="flex flex-col fixed top-0 right-0 w-full max-w-500 h-[100vh] z-10 bg-[#C5C5C5] toggle-menu"
       >
-        <button onClick={handleCloseClick} className="ml-auto text-white m-30 ">
+        <button onClick={handleCloseClick} className="ml-auto text-white m-30">
           <CloseIcon className="w-50 h-50" />
         </button>
         <div className="flex flex-col gap-20 under:font-bold text-white mt-50 all:pl-[15%] text-32">
@@ -59,7 +63,7 @@ const Navbar = ({ onClose, open }: NavbarProps) => {
               key={key}
               to={path}
               className={clsx(
-                currentPath === path
+                isHighlightPath(path)
                   ? 'text-c-orange-300'
                   : 'hover:text-c-orange-300',
               )}

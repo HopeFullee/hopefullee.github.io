@@ -11,6 +11,6 @@ import { atom } from 'recoil'
  *  /Layout 에 작성된 특정 페이지로 이동 시 Recoil 전역 변수 초기화
  */
 export const portfolioItemCountStateAtom = atom<number>({
-  key: 'newsItemCountState',
+  key: 'portfolioItemCountState',
   default: 1,
 })

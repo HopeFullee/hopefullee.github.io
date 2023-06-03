@@ -14,7 +14,7 @@ const TelosMainRenewal = () => {
             <img
               src={RenewalImage}
               alt="텔로스 홈페이지 리뉴얼 샘플 이미지"
-              className="max-h-500 lg:max-h-400 xxl:max-h-none"
+              className="max-h-500 lg:max-h-400 xxl:max-h-full"
             />
             <div className="mt-50">
               <h6 className="font-bold text-24 sm:text-35 lg:text-45">

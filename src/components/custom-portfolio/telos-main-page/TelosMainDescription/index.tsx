@@ -16,15 +16,18 @@ const TelosMainDescription = () => {
             </div>
           </div>
           <div className="md:w-[55%] flex flex-col gap-30">
-            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-480 lg:max-w-580 break-keep">
-              (주)텔로스 브랜드 자산을 바탕으로 새로운 방향성을 정의한 후, 이에
-              따른 브랜드 디자인 원칙을 도출하여 텔로스만의 아이덴티티를
-              재구축하여 Corporate Identity 리뉴얼을 진행하였습니다.
+            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-650 break-keep">
+              (주)텔로스 브랜드 자산을 바탕으로 새로운 방향성을 정의한 후,
+              <br className="hidden xl:block" /> 이에 따른 브랜드 디자인 원칙을
+              도출하여 텔로스만의 아이덴티티를 재구축하여
+              <br className="hidden xl:block" /> Corporate Identity 리뉴얼을
+              진행하였습니다.
             </p>
-            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-480 lg:max-w-580 break-keep">
+            <p className="leading-relaxed text-center sm:leading-loose md:text-left lg:ml-60 sm:text-17 lg:text-18 text-c-gray-400 max-w-650 break-keep">
               도출된 브랜드 디자인 원칙을 바탕으로 텔로스만의 아이덴티티를
-              만들어 일관성 있게 적용하기 위해 디자인 매뉴얼과 다양한
-              어플리케이션을 제공합니다.
+              만들어
+              <br className="hidden xl:block" /> 일관성 있게 적용하기 위해
+              디자인 매뉴얼과 다양한 어플리케이션을 제공합니다.
             </p>
           </div>
         </div>

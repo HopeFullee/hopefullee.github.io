@@ -1,19 +1,31 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import { useRecoilValue } from 'recoil'
 import { currentCategoryStateAtom } from 'store/storeCurrentCategory'
+import TemplateBanner from 'components/templates/TemplateBanner'
+import TemplateDescription from 'components/templates/TemplateDescription'
+import TemplateSlider from 'components/templates/TemplateSlider'
+import TemplateContent from 'components/templates/TemplateContent'
+import TemplateNavigator from 'components/templates/TemplateNavigator'
+import TelosMainBanner from 'components/custom-portfolio/telos-main-page/TelosMainBanner'
+import TelosMainDescription from 'components/custom-portfolio/telos-main-page/TelosMainDescription'
+import TelosMainConcept from 'components/custom-portfolio/telos-main-page/TelosMainConcept'
+import TelosMainIdentity from 'components/custom-portfolio/telos-main-page/TelosMainIdentity'
+import TelosMainApplication from 'components/custom-portfolio/telos-main-page/TelosMainApplication'
+import TelosMainRenewal from 'components/custom-portfolio/telos-main-page/TelosMainRenewal'
 
 type PostTemplateProps = {
   data: {
     markdown: {
       excerpt: string
       frontmatter: {
+        layoutType: string
         title: string
+        categories: string
         description: string
         stickyTitle: string
-        stickyContent: string
+        stickyDescription: string
         bannerImage: {
           childImageSharp: {
             gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
@@ -24,6 +36,16 @@ type PostTemplateProps = {
             gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
           }
         }[]
+        sideImage: {
+          childImageSharp: {
+            gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
+          }
+        }[]
+        bottomImage: {
+          childImageSharp: {
+            gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
+          }
+        }
       }
       html: string
     }
@@ -40,7 +62,7 @@ type PostTemplateProps = {
 
 const PostTemplate = function ({
   data: { markdown },
-  pageContext: { next },
+  pageContext: { previous, next },
 }: PostTemplateProps) {
   const { frontmatter, html } = markdown
 
@@ -48,7 +70,47 @@ const PostTemplate = function ({
 
   return (
     <Layout>
-      <section className="w-full mx-auto px-15 mt-60 max-w-1440 sm:mt-80 md:mt-100 lg:mt-120"></section>
+      {frontmatter.layoutType === 'custom' ? (
+        <>
+          <TelosMainBanner />
+          <TelosMainDescription />
+          <TelosMainConcept />
+          <TelosMainIdentity />
+          <TelosMainApplication />
+          <TelosMainRenewal />
+          <TemplateNavigator
+            prevPage={previous}
+            nextPage={next}
+            backTo={categoryQueryString}
+          />
+        </>
+      ) : (
+        <>
+          <TemplateBanner
+            frontmatterBanner={
+              frontmatter.bannerImage.childImageSharp.gatsbyImageData
+            }
+          />
+          <TemplateDescription
+            title={frontmatter.title}
+            categories={frontmatter.categories}
+            description={frontmatter.description}
+          />
+          <TemplateSlider sliderImages={frontmatter.sliderImage} />
+          <TemplateContent
+            layoutType={frontmatter.layoutType}
+            stickyTitle={frontmatter.stickyTitle}
+            stickyDescription={frontmatter.stickyDescription}
+            sideImage={frontmatter.sideImage}
+            bottomImage={frontmatter.bottomImage}
+          />
+          <TemplateNavigator
+            prevPage={previous}
+            nextPage={next}
+            backTo={categoryQueryString}
+          />
+        </>
+      )}
     </Layout>
   )
 }
@@ -64,15 +126,17 @@ export const queryMarkdownDataBySlug = graphql`
       id
       excerpt(pruneLength: 100)
       frontmatter {
+        layoutType
         title
+        categories
         description
         stickyTitle
-        stickyContent
+        stickyDescription
         bannerImage {
           childImageSharp {
             gatsbyImageData(
               width: 1920
-              quality: 100
+              quality: 90
               formats: [AUTO, WEBP, AVIF]
             )
           }
@@ -80,10 +144,25 @@ export const queryMarkdownDataBySlug = graphql`
         sliderImage {
           childImageSharp {
             gatsbyImageData(
-              width: 1920
-              quality: 100
+              width: 1320
+              height: 700
+              quality: 90
               formats: [AUTO, WEBP, AVIF]
             )
+          }
+        }
+        sideImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1320
+              quality: 90
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        bottomImage {
+          childImageSharp {
+            gatsbyImageData(quality: 90, formats: [AUTO, WEBP, AVIF])
           }
         }
       }

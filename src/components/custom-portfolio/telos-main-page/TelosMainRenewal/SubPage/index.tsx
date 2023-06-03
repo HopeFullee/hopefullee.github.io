@@ -16,21 +16,21 @@ const SubPage = () => {
             <img
               src={subPage01}
               alt="텔로스 홈페이지 프리뷰 이미지"
-              className="max-h-600 sm:max-h-710 md:max-h-none"
+              className="max-h-600 sm:max-h-710 md:max-h-full"
             />
           </li>
           <li>
             <img
               src={subPage02}
               alt="텔로스 홈페이지 프리뷰 이미지"
-              className="max-h-600 sm:max-h-710 md:max-h-none"
+              className="max-h-600 sm:max-h-710 md:max-h-full"
             />
           </li>
           <li>
             <img
               src={subPage03}
               alt="텔로스 홈페이지 프리뷰 이미지"
-              className="max-h-600 sm:max-h-710 md:max-h-none"
+              className="max-h-600 sm:max-h-710 md:max-h-full"
             />
           </li>
         </ul>

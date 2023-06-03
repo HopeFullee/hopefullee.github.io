@@ -10,7 +10,7 @@ const RunditBanner = () => {
       <GatsbyImage
         image={runditBanner}
         className="h-230 sm:h-auto"
-        alt="팅클랜드 베너 이미지"
+        alt="런딧 베너 이미지"
       />
     </section>
   )

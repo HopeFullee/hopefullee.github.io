@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `텔로스`,
-    description: `We are creative studio TELOS`,
+    description: `We are branding team`,
     author: `@Telos`,
     siteUrl: `https://www.thetelos.net/`,
   },
-  pathPrefix: '',
+  pathPrefix: 'public/',
   flags: {
     DEV_SSR: true,
   },

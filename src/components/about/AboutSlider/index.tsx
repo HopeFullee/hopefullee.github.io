@@ -101,7 +101,7 @@ const AboutSlider = () => {
     const getCurrentWidth = () => {
       const currentWidth = window.innerWidth
 
-      if (currentWidth <= 600) {
+      if (600 <= currentWidth) {
         setIsMobile(false)
       } else {
         setIsMobile(true)
@@ -128,7 +128,11 @@ const AboutSlider = () => {
       <Swiper
         loop={true}
         centeredSlides={true}
-        pagination={!isMobile ? true : false}
+        pagination={{
+          el: '.about-pagination-container',
+          type: 'bullets',
+          bulletActiveClass: 'about-pagination-bullet-active',
+        }}
         speed={800}
         modules={[Navigation, Pagination]}
         onBeforeInit={swiper => (swiperRef.current = swiper)}
@@ -169,7 +173,7 @@ const AboutSlider = () => {
             </SwiperSlide>
           )
         })}
-        {isMobile &&
+        {!isMobile &&
           ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
             return (
               <SwiperSlide key={'sliderItem' + idx} className="!flex-center">
@@ -196,7 +200,7 @@ const AboutSlider = () => {
             )
           })}
       </Swiper>
-      <div className="hidden ssm:flex absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-w-500 sm:max-w-600 w-full justify-between under:outline-none">
+      <div className="hidden sm:flex absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-w-500 sm:max-w-600 w-full justify-between under:outline-none">
         <button className="p-25" onClick={() => swiperRef.current?.slidePrev()}>
           <img src={sliderPrev} alt="<" />
         </button>
@@ -204,6 +208,7 @@ const AboutSlider = () => {
           <img src={sliderNext} alt=">" />
         </button>
       </div>
+      <div className="about-pagination-container"></div>
     </section>
   )
 }

@@ -5,7 +5,7 @@ type PostFrontmatterType = {
   title: string
   description: string
   stickyTitle: string
-  sitckyContent: string
+  stickyContent: string
   thumbnail: {
     childImageSharp: {
       gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
@@ -26,7 +26,6 @@ type PostFrontmatterType = {
       gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
     }
   }[]
-
   bottomImage: {
     childImageSharp: {
       gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData
