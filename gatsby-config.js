@@ -3,7 +3,7 @@ module.exports = {
     title: `텔로스`,
     description: `We are branding team`,
     author: `@Telos`,
-    siteUrl: `https://hopefullee.github.io/telos_branding/`,
+    siteUrl: `https://hopefullee.github.io/`,
   },
   pathPrefix: '',
   flags: {
