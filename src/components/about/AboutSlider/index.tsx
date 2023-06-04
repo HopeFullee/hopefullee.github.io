@@ -39,7 +39,7 @@ const ABOUT_SLIDER_INFO = [
     image: sliderItem02,
     title: <>늘 애정을 가지고</>,
     content: (
-      <span className="block mt-25">
+      <span className="block md:mt-25">
         늘 브랜드에 대한 고민과 애정으로
         <br />
         도출한 분석과 결과를 바탕으로
@@ -95,19 +95,17 @@ const ABOUT_SLIDER_INFO = [
 const AboutSlider = () => {
   const swiperRef = useRef<SwiperType>()
 
-  const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = useState<boolean | undefined>()
 
   useEffect(() => {
     const getCurrentWidth = () => {
       const currentWidth = window.innerWidth
-
-      if (600 <= currentWidth) {
-        setIsMobile(false)
-      } else {
+      if (currentWidth <= 600) {
         setIsMobile(true)
+      } else {
+        setIsMobile(false)
       }
     }
-
     const debounceResize = (fn: Function, delay: number) => {
       let id: any
       return (...args: any) => {
@@ -117,64 +115,33 @@ const AboutSlider = () => {
         }, delay)
       }
     }
-
     window.addEventListener('resize', debounceResize(getCurrentWidth, 500))
     getCurrentWidth()
     return () => window.removeEventListener('resize', getCurrentWidth)
-  }, [isMobile])
+  }, [])
 
   return (
     <section className="relative mx-auto pb-30 pt-60 sm:py-100 w-full max-w-1920 mt-100 sm:mt-200 md:mt-250 lg:mt-300 bg-[#FBFBFB]">
-      <Swiper
-        loop={true}
-        centeredSlides={true}
-        pagination={{
-          el: '.about-pagination-container',
-          type: 'bullets',
-          bulletActiveClass: 'about-pagination-bullet-active',
-        }}
-        speed={800}
-        modules={[Navigation, Pagination]}
-        onBeforeInit={swiper => (swiperRef.current = swiper)}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          900: {
-            slidesPerView: 2,
-          },
-          1300: {
-            slidesPerView: 3,
-          },
-        }}
-      >
-        {ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
-          return (
-            <SwiperSlide key={'sliderItem' + idx} className="!flex-center">
-              {({ isPrev, isNext }) => (
-                <div
-                  className={clsx(
-                    isPrev ? 'on-prev opacity-50 blur-[1px]' : '',
-                    isNext ? 'on-next opacity-50 blur-[1px]' : '',
-                    'relative flex-col text-center flex-center gap-35 transition-all duration-800',
-                  )}
-                >
-                  <img
-                    src={image}
-                    alt="썸네일 이미지"
-                    className="w-150 sm:w-auto"
-                  />
-                  <h6 className="font-extrabold text-c-orange-300 text-24 sm:text-34">
-                    {title}
-                  </h6>
-                  <p className="font-medium text-16 sm:text-22">{content}</p>
-                </div>
-              )}
-            </SwiperSlide>
-          )
-        })}
-        {!isMobile &&
-          ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
+      {!isMobile && (
+        <Swiper
+          loop={true}
+          centeredSlides={true}
+          speed={800}
+          modules={[Navigation]}
+          onBeforeInit={swiper => (swiperRef.current = swiper)}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            900: {
+              slidesPerView: 2,
+            },
+            1300: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
             return (
               <SwiperSlide key={'sliderItem' + idx} className="!flex-center">
                 {({ isPrev, isNext }) => (
@@ -199,7 +166,74 @@ const AboutSlider = () => {
               </SwiperSlide>
             )
           })}
-      </Swiper>
+          {ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
+            return (
+              <SwiperSlide key={'sliderItem2' + idx} className="!flex-center">
+                {({ isPrev, isNext }) => (
+                  <div
+                    className={clsx(
+                      isPrev ? 'on-prev opacity-50 blur-[1px]' : '',
+                      isNext ? 'on-next opacity-50 blur-[1px]' : '',
+                      'relative flex-col text-center flex-center gap-35 transition-all duration-800',
+                    )}
+                  >
+                    <img
+                      src={image}
+                      alt="썸네일 이미지"
+                      className="w-150 sm:w-auto"
+                    />
+                    <h6 className="font-extrabold text-c-orange-300 text-24 sm:text-34">
+                      {title}
+                    </h6>
+                    <p className="font-medium text-16 sm:text-22">{content}</p>
+                  </div>
+                )}
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      )}
+
+      {isMobile && (
+        <Swiper
+          loop={true}
+          centeredSlides={true}
+          slidesPerView={1}
+          pagination={{
+            el: '.about-pagination-container',
+            type: 'bullets',
+            bulletActiveClass: 'about-pagination-bullet-active',
+          }}
+          speed={800}
+          modules={[Pagination]}
+        >
+          {ABOUT_SLIDER_INFO.map(({ image, title, content }, idx) => {
+            return (
+              <SwiperSlide key={'sliderItem' + idx} className="!flex-center">
+                {({ isPrev, isNext }) => (
+                  <div
+                    className={clsx(
+                      isPrev ? 'on-prev opacity-50 blur-[1px]' : '',
+                      isNext ? 'on-next opacity-50 blur-[1px]' : '',
+                      'relative flex-col text-center flex-center gap-35 transition-all duration-800',
+                    )}
+                  >
+                    <img
+                      src={image}
+                      alt="썸네일 이미지"
+                      className="w-150 sm:w-auto"
+                    />
+                    <h6 className="font-extrabold text-c-orange-300 text-22 sm:text-34">
+                      {title}
+                    </h6>
+                    <p className="font-medium text-16 sm:text-22">{content}</p>
+                  </div>
+                )}
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      )}
       <div className="hidden sm:flex absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-w-500 sm:max-w-600 w-full justify-between under:outline-none">
         <button className="p-25" onClick={() => swiperRef.current?.slidePrev()}>
           <img src={sliderPrev} alt="<" />

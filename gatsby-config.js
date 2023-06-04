@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `텔로스`,
-    description: `We are branding team`,
+    title: `텔로스 브랜딩`,
+    description: `Telos Branding`,
     author: `@Telos`,
     siteUrl: `https://hopefullee.github.io/`,
   },

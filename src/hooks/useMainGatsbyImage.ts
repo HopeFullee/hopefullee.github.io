@@ -7,8 +7,8 @@ export const useMainGatsbyImage = () => {
     query mainPageImage {
       MainBanner: file(name: { eq: "branding_main_banner" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          fluid(quality: 100, maxWidth: 1400) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

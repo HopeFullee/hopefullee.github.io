@@ -1,8 +1,8 @@
 ---
   layoutType: 'B'
   date: '2023-05-22'
-  categories: ['Brand eXperience']
   title: 'JACK & ROB'
+  categories: ['Brand eXperience']
   description: '재미있다, 맛있다, 편리하다! 잭앤롭은 이야기를 통해 소비자와 소통하는 브랜드입니다.
                 동화 ‘잭과 콩나무’를 모티브로 ‘잭’과 ‘롭’이라는 캐릭터를 창조하여 재미있는 이야기를 통해 
                 소비자와 소통하는 친구같은 브랜드를 추구합니다.'

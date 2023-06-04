@@ -1,8 +1,8 @@
 ---
   layoutType: 'custom'
   date: '2023-05-22'
-  categories: ['Brand eXperience']
   title: 'TELOS'
+  categories: ['Brand eXperience']
   description: ''
   stickyDescription: ''
   thumbnail: './assets/telos/telos_thumbnail.png'

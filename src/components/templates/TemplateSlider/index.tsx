@@ -21,16 +21,16 @@ type TemplateSliderProps = {
 const TemplateSlider = ({ sliderImages }: TemplateSliderProps) => {
   const swiperRef = useRef<SwiperType>()
 
-  const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = useState<boolean | undefined>()
 
   useEffect(() => {
     const getCurrentWidth = () => {
       const currentWidth = window.innerWidth
 
-      if (900 <= currentWidth) {
-        setIsMobile(false)
-      } else {
+      if (currentWidth <= 900) {
         setIsMobile(true)
+      } else {
+        setIsMobile(false)
       }
     }
 
@@ -47,70 +47,101 @@ const TemplateSlider = ({ sliderImages }: TemplateSliderProps) => {
     window.addEventListener('resize', debounceResize(getCurrentWidth, 500))
     getCurrentWidth()
     return () => window.removeEventListener('resize', getCurrentWidth)
-  }, [isMobile])
+  }, [])
 
   return (
     <section className="relative bg-white flex-center pb-50">
       {sliderImages.length >= 2 ? (
         <>
-          <Swiper
-            loop={true}
-            centeredSlides={true}
-            pagination={{
-              el: '.template-pagination-container',
-              type: 'bullets',
-              bulletActiveClass: 'template-pagination-bullet-active',
-            }}
-            speed={800}
-            modules={[Navigation, Pagination]}
-            onBeforeInit={swiper => (swiperRef.current = swiper)}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              900: {
-                slidesPerView: 1.45,
-                spaceBetween: 50,
-              },
-            }}
-          >
-            {sliderImages.map((images, idx) => {
-              return (
-                <SwiperSlide key={'sliderItem' + idx} className="!flex-center">
-                  {({ isActive }) => (
-                    <GatsbyImage
-                      image={images.childImageSharp.gatsbyImageData}
-                      alt="슬라이더 이미지"
-                      className={clsx(
-                        isActive ? 'opacity-100' : 'opacity-50',
-                        'transition-all duration-500',
+          {!isMobile && (
+            <>
+              <Swiper
+                loop={true}
+                centeredSlides={true}
+                slidesPerView={1.45}
+                spaceBetween={50}
+                speed={800}
+                modules={[Navigation]}
+                onBeforeInit={swiper => (swiperRef.current = swiper)}
+              >
+                {sliderImages.map((images, idx) => {
+                  return (
+                    <SwiperSlide
+                      key={'sliderItem' + idx}
+                      className="!flex-center"
+                    >
+                      {({ isActive }) => (
+                        <GatsbyImage
+                          image={images.childImageSharp.gatsbyImageData}
+                          alt="슬라이더 이미지"
+                          className={clsx(
+                            isActive ? 'opacity-100' : 'opacity-50',
+                            'transition-all duration-500',
+                          )}
+                        />
                       )}
-                    />
-                  )}
-                </SwiperSlide>
-              )
-            })}
-            {!isMobile &&
-              sliderImages.map((images, idx) => {
-                return (
-                  <SwiperSlide
-                    key={'sliderItem' + idx}
-                    className="!flex-center"
-                  >
-                    {({ isActive }) => (
-                      <GatsbyImage
-                        image={images.childImageSharp.gatsbyImageData}
-                        alt="슬라이더 이미지"
-                        className={clsx(
-                          isActive ? 'opacity-100' : 'opacity-50',
-                          'transition-all duration-500',
-                        )}
-                      />
-                    )}
-                  </SwiperSlide>
-                )
-              })}
-          </Swiper>
+                    </SwiperSlide>
+                  )
+                })}
+                {sliderImages.map((images, idx) => {
+                  return (
+                    <SwiperSlide
+                      key={'sliderItem' + idx}
+                      className="!flex-center"
+                    >
+                      {({ isActive }) => (
+                        <GatsbyImage
+                          image={images.childImageSharp.gatsbyImageData}
+                          alt="슬라이더 이미지"
+                          className={clsx(
+                            isActive ? 'opacity-100' : 'opacity-50',
+                            'transition-all duration-500',
+                          )}
+                        />
+                      )}
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+            </>
+          )}
+
+          {isMobile && (
+            <>
+              <Swiper
+                loop={true}
+                centeredSlides={true}
+                slidesPerView={1}
+                pagination={{
+                  el: '.template-pagination-container',
+                  type: 'bullets',
+                  bulletActiveClass: 'template-pagination-bullet-active',
+                }}
+                speed={800}
+                modules={[Pagination]}
+              >
+                {sliderImages.map((images, idx) => {
+                  return (
+                    <SwiperSlide
+                      key={'sliderItem' + idx}
+                      className="!flex-center"
+                    >
+                      {({ isActive }) => (
+                        <GatsbyImage
+                          image={images.childImageSharp.gatsbyImageData}
+                          alt="슬라이더 이미지"
+                          className={clsx(
+                            isActive ? 'opacity-100' : 'opacity-50',
+                            'transition-all duration-500',
+                          )}
+                        />
+                      )}
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+            </>
+          )}
           <div className="hidden md:flex absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-1750 w-full justify-between under:outline-none">
             <button
               className="p-25"

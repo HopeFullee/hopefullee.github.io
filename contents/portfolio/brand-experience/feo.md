@@ -1,8 +1,8 @@
 ---
   layoutType: 'A'
   date: '2023-05-22'
-  categories: ['Brand eXperience']
   title: 'F.E.O.'
+  categories: ['Brand eXperience']
   description: '실시간 체험형 비대면 교육 플랫폼 Face Each Other ‘F.E.O.’ 국내 최초 3D 회의 및 녹화 
                 멀티 교육을 VR로 가상체험을 할 수 있는 플랫폼입니다. F.E.O.의 브랜드 아이덴티티를 정립하고
                 VR의 UI와 홈페이지 그리고 각종 홍보물 등을 디자인 하였습니다.'

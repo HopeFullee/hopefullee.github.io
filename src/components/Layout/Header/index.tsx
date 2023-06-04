@@ -36,7 +36,7 @@ const Header = () => {
       )}
     >
       <Link to="/" aria-label="TELOS">
-        <TelosLogo className="w-full h-36 sm:h-46" alt="Telos logo" />
+        <TelosLogo className="w-full max-w-112 h-36 sm:h-46" alt="Telos logo" />
       </Link>
 
       <HamburgerIcon

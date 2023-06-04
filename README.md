@@ -5,12 +5,12 @@
   </a>
 </p>
 <h1 align="center">
-  TELOS Main Homepage
+  TELOS Branding Homepage
 </h1>
 
 > 제작자 - 이소망
 
-> 제작일 - 2023년 03월
+> 제작일 - 2023년 05월
 
 > 프레임워크 - Gatsby.js
 
@@ -73,18 +73,18 @@
 
 &nbsp;
 
-1.  **`/contents`**: 뉴스 페이지에 표시될 컨텐츠가 존재하며, `/src/templates` 경로지에 있는 템플릿으로 생성됩니다.
+1.  **`/contents`**: 포트폴리오 페이지에 표시될 컨텐츠가 존재하며, `/src/templates` 경로지에 있는 템플릿으로 생성됩니다.
 
         .contents
-        ├── default-assets
-        ├── telos-???
-        ├── telos-???
-        └── telos-???
-              ├── assets
-              ├── item-1.md
-              └── item-2.md
+        └── portfolio
+            ├── telos-???
+            ├── telos-???
+            └── telos-???
+                ├── assets
+                ├── item-1.md
+                └── item-2.md
 
-    - **default-assets** - 콘텐츠 내 모든 파일들이 공용으로 사용할 asset을 보관합니다 (대충 올릴 사진 없을때 때우는 텔로스 로고 이미지).
+    - **portfolio** - 포트폴리오 템플릿 생성시 폴더 명을 slug로 호출 하여 쿼리스트링으로 적용하기 위해, 해당 폴더 하위에 md 등록.
 
     - **telos-???** - 각 **`폴더 명은`** 뉴스 아이템이 템플릿으로 생성시 url 쿼리스트링 (slug)으로 적용됩니다. 예) `www.thetelos.net/telos-???/item-title`
 
@@ -156,13 +156,9 @@
 
 5.  **`/store`**: 전역 상태관리를 담당하는 `Recoil`의 초기 설정 및 저장고가 작성되어있습니다.
 
-    - **`/pages/culture`** 문화 페이지의 직업 소개내용을 보관하고 있으며 추후 내용 수정이 필요할시
+6.  **`/styles`**: 프로젝트내 전역 공용 스타일 파일이 등록되어있습니다.
 
-      `/store/storeClass` 에서 기존 서식대로 수정 작업하시길 바랍니다. (주석 참고)
-
-6.  **`/styles`**: 프로젝트내 전역 공용 스타일과 `/contents` 내부 마크다운에 적용될 스타일 문서가 작성되어있습니다.
-
-7.  **`/templates`**: 뉴스 페이지 목록의 상세 페이지를 담당하는 마크다운 템플릿입니다.
+7.  **`/templates`**: 포트폴리오 페이지 목록의 상세 페이지를 담당하는 마크다운 템플릿입니다.
 
     - **`재사용성`**: `/contents` 내부에 있는 마크다운 파일을 호출하여 `/templates` 규격에 찍어내는 로직은 `gatsby-node.js` 에 작성되어있습니다.
 
@@ -180,25 +176,33 @@
 
   ```shell
   ---
-  date: '2023-04-04'
-  title: 'TELOS 뉴스 게시글 제목입니다.'
-  categories: ['Telos news']
-  summary: '텔로스 뉴스의 줄거리 내용입니다.'
-  thumbnail: './assets/telos_news_image.png'
-  templateBg: true
+  layoutType: 'A'
+  date: '2023-05-22'
+  title: 'F.E.O.'
+  categories: ['Brand eXperience']
+  description: '실시간 체험형 비대면 교육 플랫폼 Face Each Other'
+  stickyTitle: '홍보물 디자인'
+  stickyDescription: '실시간 체험형 비대면 교육 플랫폼'
+  thumbnail: './assets/FEO/feo_banner.png'
+  bannerImage: './assets/FEO/feo_banner.png'
+  sliderImage: ['./assets/FEO/feo_slider_01.png', './assets/FEO/feo_slider_02.png', './assets/FEO/feo_slider_03.png']
+  sideImage: ['./assets/FEO/feo_side_01.png', './assets/FEO/feo_side_02.png', './assets/FEO/feo_side_03.png']
+  bottomImage: './assets/FEO/feo_bottom.png'
   ---
-
-  # ▼▼▼ 게시글 본문 내용 마크다운으로 작성 ▼▼▼
-
-  게시글 내용 작성...
 
   ```
 
+1. **`layoutType`**: 사이드 이미지 레이아웃의 타입 지정 (가변성 구조). - <span style="color:skyblue">string</span>
+
+   - <img src="./src/assets/images/portfolio/template/template_layout_A.png">
+
+   - <img src="./src/assets/images/portfolio/template/template_layout_B.png">
+
 1. **`date`**: 게시글 작성일 - <span style="color:skyblue">string</span>
 
-2. **`title`**: 게시글 제목 - <span style="color:skyblue">string</span>
+1. **`title`**: 게시글 제목 - <span style="color:skyblue">string</span>
 
-3. **`category`**: 게시글 카테고리 - <span style="color:skyblue">string array</span>
+1. **`category`**: 게시글 카테고리 - <span style="color:skyblue">string array</span>
 
    - 카테고리 `명칭`은 작성중인 마크다운 파일이 속한 `부모 폴더` 명과 동일하게 작성하셔야, 관리가 편합니다.
 
@@ -206,22 +210,26 @@
 
    - 추후 1개 이상의 카테고리를 지정할수있도록 `배열`로 설계하였습니다.
 
-4. **`summery`**: 게시글 줄거리 - <span style="color:skyblue">string</span>
+1. **`description`**: 게시글 상단 설명 내용 - <span style="color:skyblue">string</span>
 
-   - 웹 디자인/기획 설계상 줄거리 내용은 `필요 하지않습니다`.
+1. **`sticky title`**: 하단 사이드 이미지 좌측에 붙어있는 부가 설명 제목. - <span style="color:skyblue">string</span>
 
-   - 추후 줄거리 내용 필요 시 `/pages/news` 에서 호출하여 `/components/news/NewsList/NewsItem`
+1. **`sticky description`**: 하단 사이드 이미지 좌측에 붙어있는 부가 설명 내용. - <span style="color:skyblue">string</span>
 
-     으로 프롭스 드릴링 작업이 되어있음으로 해당 영역에서 바인딩 하여 사용 바랍니다.
+1. **`thumbnail`**: 게시글 썸네일 이미지 - <span style="color:skyblue">string 상대 경로</span>
 
-5. **`thumbnail`**: 게시글 썸네일 이미지 - <span style="color:skyblue">string 상대 경로</span>
+1. **`banner image`**: 게시글 베너 이미지 - <span style="color:skyblue">string 상대 경로</span>
 
-   - 썸네일 경로는 작성중인 마크다운 폴더내 전용 `/assets`
+1. **`slider image`**: 게시글 슬라이더 이미지 - <span style="color:skyblue">배열 string 상대 경로</span>
 
-     또는 최상단 공용 `/default-assets` 으로 사용바랍니다.
+   - 슬라이더 이미지가 단 1개만 필요하더라도 (배열) 로 이미지 호출.
 
-6. **`templateBg`**: 게시글 상세 페이지 `배경` 이미지 ON / OFF 설정 - <span style="color:skyblue">boolean</span>
+1. **`side image`**: 게시글 하단 사이드 이미지 - <span style="color:skyblue">배열 string 상대 경로</span>
 
-   - 상단 `thumbnail` 에서 적용한 이미지로 `template` 상세 페이지의 배경으로 재사용됩니다.
+   - 사이드 이미지의 layout 에 따라 받아야하는 이미지의 갯수가 fixed 로 정해저있습니다.
 
-   - 만약 상세페이지 에서 배경이 필요없다면 `false` 값을 기입하여 사용 바랍니다.
+   - type: A - 3개의 이미지
+
+   - type: B - 4개의 이미지
+
+1. **`bottom image`**: 게시글 최하단 이미지 - <span style="color:skyblue">string 상대 경로</span>
