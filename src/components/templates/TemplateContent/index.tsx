@@ -26,7 +26,7 @@ const TemplateContent = ({
   bottomImage,
 }: TemplateContentProps) => {
   return (
-    <section className="flex-col bg-white flex-center py-100 sm:py-150 lg:pt-200 gap-50 sm:gap-75">
+    <section className="flex-col bg-white flex-center py-100 sm:py-150 lg:pt-250 gap-50 sm:gap-75">
       <article className="flex flex-col items-center justify-between w-full gap-50 md:items-stretch md:flex-row px-30 lg:px-50 max-w-950 lg:max-w-1650">
         <div className="relative">
           <div className="sticky flex flex-col leading-relaxed top-[15%] gap-20 lg:gap-30 max-w-440 md:max-w-350 lg:max-w-460 break-keep text-left">
